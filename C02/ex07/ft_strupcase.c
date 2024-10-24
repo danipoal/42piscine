@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:49:28 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/23 15:21:56 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:23:11 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*#include <stdio.h>*/
 
-int	ft_str_is_alpha(char *str)
+char	*ft_strupcase(char *str)
 {
 	int	i;
-	int	isalpha;
 
 	i = 0;
-	isalpha = 1;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] > 65 && str[i] < 90) && !(str[i] > 96 && str[i] < 122))
+		if (str[i] > 96 && str[i] < 123)
 		{
-			isalpha = 0;
+			str[i] = str[i] -32;
 		}
 		i++;
 	}
-	return (isalpha);
+	return (str);
 }
 
 /*int	main(void)
 {
-	char	str[] = "";
-	int a = ft_str_is_alpha(str);
-	printf("%i\n", a);
+	char	str[] = "AadfsIEC*(*#aA";
+	char* a = ft_strupcase(str);
+	printf("%s\n", a);
 
 }*/

@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:49:28 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/23 15:21:56 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:01:04 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*#include <stdio.h>*/
 
-int	ft_str_is_alpha(char *str)
+int	ft_str_is_lowercase(char *str)
 {
 	int	i;
-	int	isalpha;
+	int	islow;
 
 	i = 0;
-	isalpha = 1;
+	islow = 1;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] > 65 && str[i] < 90) && !(str[i] > 96 && str[i] < 122))
+		if (str[i] > 122 || str[i] < 97)
 		{
-			isalpha = 0;
+			islow = 0;
 		}
 		i++;
 	}
-	return (isalpha);
+	return (islow);
 }
 
 /*int	main(void)
 {
-	char	str[] = "";
-	int a = ft_str_is_alpha(str);
+	char	str[] = "ddede2";
+	int a = ft_str_is_lowercase(str);
 	printf("%i\n", a);
 
 }*/

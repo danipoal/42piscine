@@ -1,39 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:49:28 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/23 15:21:56 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:34:15 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*#include <stdio.h>*/
 
-int	ft_str_is_alpha(char *str)
+char	*ft_strcapitalize(char *str)
 {
 	int	i;
-	int	isalpha;
 
 	i = 0;
-	isalpha = 1;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] > 65 && str[i] < 90) && !(str[i] > 96 && str[i] < 122))
-		{
-			isalpha = 0;
-		}
+		if ((str[i] > 96 && str[i] < 122 && i == 0)
+			|| ((str[i] > 96 && str[i] < 122)
+				&& (str[i - 1] < 48
+					|| (str[i - 1] < 'A' && str[i - 1] > 57)
+					|| (str[i - 1] > 'Z' && str[i - 1] < 'a')))
+			|| ((str[i] > 96 && str[i] < 122) && str[i - 1] > 'z')
+			|| (str[i] > 96 && str[i] < 122 && str[i - 1] == 32)
+		)
+			str[i] = str[i] - 32;
+		else if (str[i] > 64 && str[i] < 91 && i != 0)
+			str[i] = str[i] + 32;
 		i++;
 	}
-	return (isalpha);
+	return (str);
 }
 
 /*int	main(void)
 {
-	char	str[] = "";
-	int a = ft_str_is_alpha(str);
-	printf("%i\n", a);
+	char	str[] = "H6ola co5mo es-ta mi gente, f kLOK aaaKKKK";
+	char* a = ft_strcapitalize(str);
+	printf("%s\n", a);
 
 }*/

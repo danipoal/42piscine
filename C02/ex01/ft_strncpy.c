@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 14:49:28 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/23 15:21:56 by danalvar         ###   ########.fr       */
+/*   Created: 2024/10/22 19:31:09 by danalvar          #+#    #+#             */
+/*   Updated: 2024/10/23 18:48:03 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*#include <stdio.h>*/
 
-int	ft_str_is_alpha(char *str)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
-	int	isalpha;
+	unsigned int	i;
 
 	i = 0;
-	isalpha = 1;
-	while (str[i] != '\0')
+	while (i < n)
 	{
-		if (!(str[i] > 65 && str[i] < 90) && !(str[i] > 96 && str[i] < 122))
-		{
-			isalpha = 0;
-		}
+		dest[i] = src[i];
 		i++;
 	}
-	return (isalpha);
+	return (dest);
 }
 
 /*int	main(void)
 {
-	char	str[] = "";
-	int a = ft_str_is_alpha(str);
-	printf("%i\n", a);
+	char	a[] = "Hola:)";
+	char	b[7];
 
+	ft_strncpy(b, a, 7);
+	printf("%s\n", b);
 }*/
