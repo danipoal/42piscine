@@ -1,25 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 18:56:33 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/21 22:55:13 by danalvar         ###   ########.fr       */
+/*   Created: 2024/10/21 23:12:41 by danalvar          #+#    #+#             */
+/*   Updated: 2024/10/21 23:52:11 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <unistd.h>*/
+/*#include <stdio.h>*/
 
-void	ft_ft(int *nbr)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	*nbr = 42;
+	int	i;
+	int	tmp;
+
+	i = 0;
+	while (i < size / 2)
+	{
+		tmp = tab[size - i - 1];
+		tab[size - i - 1] = tab[i];
+		tab[i] = tmp;
+		i++;
+	}
 }
 
 /*int	main(void)
 {
-	int v = 1;
-	int* i = &v;
-	ft_ft(i);
+	int	a[5] = {0, 1, 2, 3, 4};
+
+	
+	ft_rev_int_tab(a, 5);
+
+	int i = 0;
+	while(i < 5)
+	{
+		char c = a[i] + '0';
+		printf("%c", c);
+		i++;
+	}
 }*/

@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 18:56:33 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/21 22:55:13 by danalvar         ###   ########.fr       */
+/*   Created: 2024/10/21 22:46:59 by danalvar          #+#    #+#             */
+/*   Updated: 2024/10/21 22:54:40 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <unistd.h>*/
+#include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_putstr(char *str)
 {
-	*nbr = 42;
+	while (*str != '\0')
+	{
+		write (1, str, 1);
+		str++;
+	}
 }
 
 /*int	main(void)
 {
-	int v = 1;
-	int* i = &v;
-	ft_ft(i);
+	char	*str;
+
+	str = "Hello :)";
+	ft_putstr(str);
 }*/

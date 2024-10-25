@@ -26,28 +26,34 @@ char	*dec_to_hex(int decimal)
 {
 	int	cociente;
 	int	res;
-	char	hex[];
+	char	hex[2];
 	
 	cociente = decimal;
 	while(cociente >= 16)
 	{
+		//Hacer el pop al principio de la pila y mover el primero al segundo
+		if(hex[1] == NULL && hex[0] != NULL)
+		{
+			hex[1] = hex[0];
+		}
 		res = cociente % 16;
 		cociente = cociente / 16;
 		
 		if(res <= 0 && res < 10)
-			hex[i] = res + '0'; //Pasar de int a char
+			hex[0] = res + '0'; //Pasar de int a char
 		else if(res == 10))
-			A
+			hex[0] = A;
 		else if(res == 11)
-			B
+			B;
 		else if(res == 12)
-			C
+			C;
 		else if(res == 13)
-			D
+			D;
 		else if(res == 14)
-			E
+			E;
 		else if(res == 15)
-			F
+			F;
+		or >10 + 55 = ASCII
 			
 	}
 }

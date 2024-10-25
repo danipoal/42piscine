@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 18:56:33 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/21 22:55:13 by danalvar         ###   ########.fr       */
+/*   Created: 2024/10/21 23:02:51 by danalvar          #+#    #+#             */
+/*   Updated: 2024/10/21 23:11:49 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <unistd.h>*/
+/*#include <stdio.h>*/
 
-void	ft_ft(int *nbr)
+int	ft_strlen(char *str)
 {
-	*nbr = 42;
+	int	contador;
+
+	contador = 0;
+	while (*str != '\0')
+	{
+		contador++;
+		str++;
+	}
+	return (contador);
 }
 
 /*int	main(void)
 {
-	int v = 1;
-	int* i = &v;
-	ft_ft(i);
+	int	len;
+
+	len = ft_strlen("Hola");
+	printf("%i", len);
+	return (0) ;
 }*/
