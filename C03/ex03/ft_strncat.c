@@ -1,52 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 18:06:46 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/25 23:54:24 by danalvar         ###   ########.fr       */
+/*   Created: 2024/10/26 02:17:19 by danalvar          #+#    #+#             */
+/*   Updated: 2024/10/26 11:39:53 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 int	ft_strlen(char *str)
 {
 	int	contador;
 
 	contador = 0;
-	while (*str != '\0')
-	{
+	while (str[contador] != '\0')
 		contador++;
-		str++;
-	}
 	return (contador);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	len;
+	unsigned int	i;
+	unsigned int	j;
 
-	len = ft_strlen(src);
-	i = 0;
-	while (i < len)
+	i = ft_strlen(dest);
+	j = 0;
+	while (j < nb && src[j] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		dest[i + j] = src[j];
+		j++;
 	}
-	dest[i] = '\0';
+	dest[i + j] = '\0';
 	return (dest);
 }
 
 /*int	main(void)
 {
-	char	*a = "Hola";
-	char	b[5];
+	char	source[] = "Hola";
 
-	ft_strcpy(b, a);
-	printf("%s\n", b);
+	char	destin[] = "Adios";
+
+
+	ft_strncat(destin, source, 5);
+	printf("%s\n", destin);
 	return (0);
 }*/

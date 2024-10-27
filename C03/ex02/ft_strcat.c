@@ -6,45 +6,38 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 22:02:46 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/24 22:24:35 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/10/26 11:26:28 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strlen(char *str)
-{
-	int	contador;
-
-	contador = 0;
-	while (*str != '\0')
-	{
-		contador++;
-		str++;
-	}
-	return (contador);
-}
+/*#include <stdio.h>*/
 
 char	*ft_strcat(char *dest, char *src)
 {
-	int	final;
-	
-	printf("%s\n", dest);
-	final = ft_strlen(dest);
-	char *a  = dest + final;
-	a = src;
-	
+	int	i;
+	int	j;
+
+	i = 0;
+	while (dest[i] != '\0')
+		i++;
+	j = 0;
+	while (src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = '\0';
 	return (dest);
 }
 
-int	main(void)
+/*int	main(void)
 {	
 	char	source[] = "Hola%w Pepsicola";
 
-	char	destination[50];
+	char	destination[] = "Adios";
 
-	ft_strcat(source, destination);
+	ft_strcat(destination, source);
 
-	printf("%s-\n", destination);
+	printf("%s\n", destination);
 	return (0);
-}
+}*/

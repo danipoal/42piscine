@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:49:28 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/23 15:21:56 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/10/26 00:37:27 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ int	ft_str_is_alpha(char *str)
 	isalpha = 1;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] > 65 && str[i] < 90) && !(str[i] > 96 && str[i] < 122))
-		{
+		if (!(str[i] >= 'A' && str[i] <= 'Z' )
+			&& !(str[i] >= 'a' && str[i] <= 'z'))
 			isalpha = 0;
-		}
 		i++;
 	}
 	return (isalpha);
@@ -32,7 +31,7 @@ int	ft_str_is_alpha(char *str)
 
 /*int	main(void)
 {
-	char	str[] = "";
+	char	str[] = "0azzZZa0aaAAAAA";
 	int a = ft_str_is_alpha(str);
 	printf("%i\n", a);
 

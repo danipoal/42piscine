@@ -6,10 +6,10 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:41:02 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/24 18:16:37 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/10/26 11:17:25 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+/*#include <unistd.h>*/
 
 int	ft_char_is_printable(char str)
 {
@@ -51,14 +51,17 @@ void	dec_to_hex(char decimal)
 void	ft_putstr_non_printable(char *str)
 {
 	int	i;
+	int	counthex;
 
 	i = 0;
-	while (str[i] != '\0')
+	counthex = 0;
+	while (str[i] != '\0' || counthex == 0)
 	{
 		if (ft_char_is_printable(str[i]) == 0)
 		{
 			write(1, "\\", 1);
 			dec_to_hex(str[i]);
+			counthex++;
 		}
 		else
 			write(1, &str[i], 1);
