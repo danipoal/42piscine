@@ -5,32 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 21:49:40 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/24 22:02:19 by danalvar         ###   ########.fr       */
+/*   Created: 2024/10/24 21:18:33 by danalvar          #+#    #+#             */
+/*   Updated: 2024/10/28 20:04:59 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*#include <stdio.h>*/
-
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (i < n)
+	if (s1[i] != '\0' || s2[i] != '\0')
 	{
-		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
-			return (0);
-		i++;
+		while (i < n)
+		{
+			if (s1[i] != s2[i])
+				return (s1[i] - s2[i]);
+			i++;
+		}
 	}
-	return (1);
+	return (0);
 }
 
-/*int	main(void)
-{
-	int	result;
+/*#include <stdio.h>
+#include <string.h>
 
-	result = ft_strncmp("Hola", "Holggga", 7);
-	printf("Es igual %i\n", result);
-	return (0);
-}*/
+int	main(void)
+{
+	int	custom;
+	int	original;
+	int	n;
+	char*	s1 = "aaaa";
+	char*	s2 = "aa";
+	
+	n = 3;
+	custom = ft_strncmp(s1, s2, 3);
+	original = strncmp(s1, s2, 3);
+	printf("Custom %i\n", custom);
+	printf("Original %i\n", original);
+	
+		return (0);
+	}*/

@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 13:46:11 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/26 14:56:46 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:44:15 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,35 @@ int	ft_strlen(char *str)
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
-	unsigned int	j;
-	unsigned int	len;
+	unsigned int	destlen;
+	unsigned int	srclen;
 
-	len = ft_strlen(dest) + ft_strlen(src);
-	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	j = 0;
-	while (src[j] != '\0' && i + j < size)
+	srclen = ft_strlen(src);
+	destlen = 0;
+	if (destlen >= size)
 	{
-		dest[i + j] = src[j];
-		j++;
+		return (size + srclen);
 	}
-	dest[i + j] = '\0';
-	return (len);
+	while (dest[destlen] != '\0' && destlen < size)
+		destlen++;
+	i = 0;
+	while (i < srclen && destlen + i + 1 < size)
+	{
+		dest[i + destlen] = src[i];
+		i++;
+	}
+	dest[i + srclen] = '\0';
+	return (srclen + destlen);
 }
 
-/*#include <stdio.h>
+/*
+Si dest es = o mayor que size, devuelve tamano esperado
+Para ver donde se trunco srclen + destlen - size + srclen
+
+Concatena src a dest asegurando no exceder limite
+devuelve tamano cadena completa
+
+#include <stdio.h>
 #include <string.h>
 
 int	main(void)
@@ -49,7 +60,7 @@ int	main(void)
 	char	destination[11] = "Adios";
 	
 	printf("DESTINO: %s\nORIGEN:  %s\n", destination, source);
-	int	len = ft_strlcat(destination, source, 11);
+	int	len = ft_strlcat(destination, source, 22);
 
 	printf("Result: %s\n%i\n", destination, len);
 	return (0);

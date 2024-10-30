@@ -1,62 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 21:18:33 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/28 19:57:18 by danalvar         ###   ########.fr       */
+/*   Created: 2024/10/29 17:21:25 by danalvar          #+#    #+#             */
+/*   Updated: 2024/10/29 17:25:07 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 int	ft_strlen(char *str)
 {
 	int	contador;
 
 	contador = 0;
-	while (*str != '\0')
-	{
+	while (str[contador] != '\0')
 		contador++;
-		str++;
-	}
 	return (contador);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+int	check_base(char *base)
 {
 	int	i;
-	int	len1;
-	int	len2;
+	int	j;
 
 	i = 0;
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	if (s1[i] != '\0' || s2[i] != '\0')
+	j = 0;
+	if (ft_strlen(base) == 0 || ft_strlen(base) == 1)
+		return (1);
+	while (base[i] != '\0')
 	{
-		while (i < len1 || i < len2)
+		j = i + 1;
+		while (base[j] != '\0')
 		{
-			if (s1[i] != s2[i])
-				return (s1[i] - s2[i]);
-			i++;
+			if (base[i] == base[j] || base[i] == '-'
+				|| base[i] == '+')
+				return (1);
+			j++;
 		}
+		i++;
 	}
 	return (0);
 }
 
-/*#include <stdio.h>
-#include <string.h>
-
-int	main(void)
+int	ft_atoi_base(char *str, char *base)
 {
-	int	custom;
-	int	original;
-	char*	s1 = "dsf";
-	char*	s2 = "sad";
 
-	custom = ft_strcmp(s1, s2);
-	original = strcmp(s1, s2);
-	printf("Custom %i\n", custom);
-	printf("Original %i\n", original);
-	
+}
+
+int	main(int argsc, char *argsv[])
+{
+	int	n;
+
+	if (argsc != 3)
+	{
+		printf("Introduce parametros\n");
+		return (1);
+	}
+	ft_putnbr_base(argsv[2], argsv[3]);
 	return (0);
-}*/
+}
+
