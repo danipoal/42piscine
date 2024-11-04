@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 20:39:09 by danalvar          #+#    #+#             */
-/*   Updated: 2024/11/02 22:54:05 by danalvar         ###   ########.fr       */
+/*   Created: 2024/10/30 21:46:42 by danalvar          #+#    #+#             */
+/*   Updated: 2024/11/01 21:14:19 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+int	ft_find_next_prime(int nb)
 {
-	int	sum;
+	int	i;
+	int	isprime;
 
-	sum = 1;
-	if (nb > 1)
-		sum = ft_recursive_factorial(nb - 1);
-	return (sum * nb);
-}
-
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(int argc, char *argsv[])
-{
-	int	a;
-	int	nb;
-
-	if (argc == 2)
+	while (1)
 	{
-		nb = atoi(argsv[1]);
-		a = ft_recursive_factorial(nb);
-		printf("%i\n", a);
+		isprime = 1;
+		i = nb - 1;
+		while (i > 1 && isprime == 1)
+		{
+			if (nb % i == 0)
+			{
+				isprime = 0;
+			}
+			else if (i == 2)
+				return (nb);
+			i--;
+		}
+		nb++;
 	}
 	return (0);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	printf("%i\n", ft_find_next_prime(90));
+	return (0);
+
+}*/

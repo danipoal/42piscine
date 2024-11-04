@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 20:39:09 by danalvar          #+#    #+#             */
-/*   Updated: 2024/11/02 22:54:05 by danalvar         ###   ########.fr       */
+/*   Created: 2024/10/30 19:20:11 by danalvar          #+#    #+#             */
+/*   Updated: 2024/10/30 21:30:06 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+int	ft_fibonacci(int index)
 {
-	int	sum;
-
-	sum = 1;
-	if (nb > 1)
-		sum = ft_recursive_factorial(nb - 1);
-	return (sum * nb);
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	if (index == 1)
+		return (1);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
 
-#include <stdio.h>
-#include <stdlib.h>
+/*#include <stdio.h>
 
-int	main(int argc, char *argsv[])
+int	main(void)
 {
-	int	a;
-	int	nb;
-
-	if (argc == 2)
-	{
-		nb = atoi(argsv[1]);
-		a = ft_recursive_factorial(nb);
-		printf("%i\n", a);
-	}
+	printf("%i\n", ft_fibonacci(6));
 	return (0);
-}
+}*/
