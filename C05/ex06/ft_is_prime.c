@@ -6,28 +6,37 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 21:42:32 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/30 21:45:54 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/11/02 23:32:32 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
-	int	res;
+	int	i;
 
-	res = nb -1;
-	while (nb > 1)
+	if (nb < 2)
+		return (0);
+	i = nb -1;
+	while (i > 1)
 	{
-		if (nb % res == 0)
-			return (res);
-		res--;
+		if (nb % i == 0)
+			return (0);
+		i--;
 	}
-	return (0);
+	return (1);
 }
 
 /*#include <stdio.h>
+#include <stdlib.h>
 
-int	main(void)
+int	main(int argc, char *argsv[])
 {
-	printf("%i\n", ft_is_prime(13));
+	int	nb;
+
+	if (argc == 2)
+	{
+		nb = atoi(argsv[1]);
+		printf("%i\n", ft_is_prime(nb));
+	}
 	return (0);
 }*/

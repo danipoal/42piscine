@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 21:14:37 by danalvar          #+#    #+#             */
-/*   Updated: 2024/10/29 21:25:05 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/11/02 23:33:28 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_recursive_power(int nb, int power)
 
 	if (power < 0)
 		return (0);
+	if (power == 0)
+		return (1);
 	sum = 1;
 	if (power > 1)
 		sum = ft_recursive_power(nb, power -1);
