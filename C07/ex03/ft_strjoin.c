@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:25:18 by danalvar          #+#    #+#             */
-/*   Updated: 2024/11/05 19:42:11 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/11/07 18:35:59 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,26 @@ int	get_len(int size, char **strs, char *sep)
 	return (lentotal);
 }
 
+char	*ft_strdup(char *src)
+{
+	int		len;
+	int		i;
+	char	*dest;
+
+	len = ft_strlen(src);
+	dest = (char *) malloc((len + 1) * sizeof(char));
+	if (dest == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		i;
@@ -66,7 +86,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*str;
 
 	if (size <= 0)
-		return ("");
+		return (ft_strdup(""));
 	i = 0;
 	lentotal = get_len(size, strs, sep);
 	str = (char *) malloc(lentotal * sizeof(char));
@@ -90,7 +110,7 @@ int	main(void)
 	char	*sep;
 
 	sep = "\n";
-	sep = ft_strjoin(2, strs, sep);
+	sep = ft_strjoin(3, strs, sep);
 	printf("%s\n", sep);
 	free(sep);
 	return (0);

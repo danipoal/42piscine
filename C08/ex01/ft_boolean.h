@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:40:00 by danalvar          #+#    #+#             */
-/*   Updated: 2024/11/06 21:24:51 by danalvar         ###   ########.fr       */
+/*   Updated: 2024/11/07 19:10:55 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_BOOLEAN_H
 
 # include <unistd.h>
-# define EVEN(x) (x % 1)
+# define EVEN(x) (!(x % 2))
 # define TRUE 1
 # define FALSE 0
 # define EVEN_MSG "I have an even number of arguments."
