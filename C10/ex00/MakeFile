@@ -1,0 +1,32 @@
+NAME = ft_display_file
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
+SRCS = 
+OBJS = $(SRCS:.c=.o)
+
+# Regla all para compilar la biblioteca
+all: $(NAME)
+
+# Crear el binario compilando los .o con el main.c
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+# Compilar cada archivo fuente en un archivo objeto
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Limpiar los archivos objeto si ya no son necesarios
+.PHONY: clean
+clean:
+	rm -rf $(OBJS)
+
+# Regla para limpiar todo lo compilado, incluyendo la biblioteca
+.PHONY: fclean
+fclean: clean
+	rm -rf $(NAME)
+
+# Regla para recompilar todo
+.PHONY: re
+re: fclean all
