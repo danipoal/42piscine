@@ -1,3 +1,11 @@
+/*
+ *  ft_display_file by danipoal <18/11/2024>
+ *      Function that outputs the content of the file
+ *      passed by parameters
+ *      Makefile: Its only one file so does not create 
+ *      .o files and no need to clean
+*/
+
 #include <unistd.h>
 #include <fcntl.h>
 
@@ -43,3 +51,4 @@ int main(int ac, char **av)
     }
     return (0);
 }
+
